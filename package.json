@@ -1,0 +1,25 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "fs-js": "^1.0.6",
+    "react": "^16.2.0",
+    "react-bootstrap-table": "^4.3.1",
+    "react-bootstrap-table-next": "^0.1.5",
+    "react-dom": "^16.2.0",
+    "react-dropdown": "^1.4.0",
+    "react-json-table": "^0.1.1",
+    "react-scripts": "1.1.1",
+    "react-tabs": "^2.2.1",
+    "xml2js": "^0.4.19"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

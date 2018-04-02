@@ -1,0 +1,11 @@
+.react-bootstrap-table table {
+  table-layout: auto;
+}
+
+.react-bootstrap-table table td,
+.react-bootstrap-table table th {
+  text-align: justify;
+  white-space: normal;
+  word-break: break-all;
+  text-align: center;
+}
