@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="SearchForm" type="gov.nih.nlm.semmed.struts.form.SearchForm" />
+		<form-bean name="SemrepForm" type="gov.nih.nlm.semmed.struts.form.SemrepForm" />
+		<form-bean name="SummaryForm" type="gov.nih.nlm.semmed.struts.form.SummaryForm" />
+		<form-bean name="VisualizeForm" type="gov.nih.nlm.semmed.struts.form.VisualizeForm" />
+		<form-bean name="TranslateForm" type="gov.nih.nlm.semmed.struts.form.TranslateForm" />
+		<form-bean name="QuestionForm" type="gov.nih.nlm.semmed.struts.form.QuestionForm"/>
+	</form-beans>
+
+	<global-exceptions>
+  		<exception key="error.default" path="/jsp/error.jsp" scope="request" type="java.lang.Exception" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler"/>
+ 		<exception key="error.semmed" path="/jsp/error.jsp" scope="request" type="gov.nih.nlm.semmed.exception.SemMedException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" />
+		<exception key="error.semmed.upload" path="/jsp/error.jsp" scope="request" type="gov.nih.nlm.semmed.exception.UploadException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" />
+		<exception key="error.semmed.xml" path="/jsp/error.jsp" scope="request" type="gov.nih.nlm.semmed.exception.XMLException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" />
+	</global-exceptions>
+	<global-forwards>
+		<forward name="Welcome" path="/Welcome.do" contextRelative="true" />
+	</global-forwards>
+
+	<action-mappings>
+		<action attribute="SearchForm" name="SearchForm" path="/Welcome" scope="request" type="gov.nih.nlm.semmed.struts.action.InitializeSearchAction" validate="false">
+			<forward name="success" path="/jsp/search.jsp" contextRelative="true" />
+		</action>
+		<action attribute="SearchForm" input="/jsp/search.jsp" name="SearchForm" parameter="method" path="/Search" scope="request" type="gov.nih.nlm.semmed.struts.action.SearchAction">
+ 			<exception key="error.semmed.search.pubmed" path="/jsp/error.jsp" type="gov.nih.nlm.semmed.exception.PubmedException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" scope="request" />
+ 			<exception key="error.semmed.search.essie" path="/jsp/error.jsp" type="gov.nih.nlm.semmed.exception.EssieException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" scope="request" />
+			<forward name="success" path="/jsp/search.jsp" contextRelative="true" />
+			<forward name="failure" path="/jsp/search.jsp" contextRelative="true" />
+		</action>
+		<action attribute="SemrepForm" name="SemrepForm" path="/InitializeSemrep" scope="request" type="gov.nih.nlm.semmed.struts.action.InitializeSemrepAction" validate="false">
+			<forward name="success" path="/jsp/semrep.jsp" contextRelative="true" />
+		</action>
+		<action attribute="SemrepForm" input="/jsp/semrep.jsp" name="SemrepForm" parameter="method" path="/Semrep" scope="request" type="gov.nih.nlm.semmed.struts.action.SemrepAction">
+ 			<exception key="error.semmed.semrep.db" path="/jsp/error.jsp" type="gov.nih.nlm.semmed.exception.DbConnectionException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" scope="request" />
+			<forward name="success" path="/jsp/semrep.jsp" contextRelative="true" />
+			<forward name="failure" path="/jsp/semrep.jsp" contextRelative="true" />
+		</action>
+		<action attribute="SummaryForm" name="SummaryForm" path="/InitializeSummary" scope="request" type="gov.nih.nlm.semmed.struts.action.InitializeSummaryAction" validate="false">
+			<forward name="success" path="/jsp/summary.jsp" contextRelative="true" />
+		</action>
+		<action attribute="SummaryForm" input="/jsp/summary.jsp" name="SummaryForm" parameter="method" path="/Summary" scope="request" type="gov.nih.nlm.semmed.struts.action.SummaryAction">
+			<forward name="success" path="/jsp/summary.jsp" contextRelative="true" />
+			<forward name="failure" path="/jsp/summary.jsp" contextRelative="true" />
+		</action>
+		<action attribute="TranslateForm" name="TranslateForm" path="/InitializeTranslate" scope="request" type="gov.nih.nlm.semmed.struts.action.InitializeTranslateAction" validate="false">
+			<forward name="success" path="/jsp/translate.jsp" contextRelative="true" />
+		</action>
+		<action attribute="TranslateForm" input="/jsp/translate.jsp" name="TranslateForm" parameter="method" path="/Translate" scope="request" type="gov.nih.nlm.semmed.struts.action.TranslateAction">
+<!-- 			<exception key="error.semmed.translate.db" path="/jsp/error.jsp" type="gov.nih.nlm.semmed.exception.DbConnectionException" handler="gov.nih.nlm.semmed.struts.action.SemMedExceptionHandler" scope="request"/>-->
+			<forward name="success" path="/jsp/translate.jsp" contextRelative="true" />
+			<forward name="failure" path="/jsp/translate.jsp" contextRelative="true" />
+		</action>
+		<action attribute="VisualizeForm" name="VisualizeForm" path="/InitializeVisualization" scope="request" type="gov.nih.nlm.semmed.struts.action.InitializeVisualizationAction" validate="false">
+			<forward name="success" path="/jsp/visualize.jsp" contextRelative="true" />
+		</action>
+		<action attribute="VisualizeForm" input="/jsp/visualize.jsp" name="VisualizeForm" parameter="method" path="/Visualize" scope="request" type="gov.nih.nlm.semmed.struts.action.VisualizeAction">
+			<forward name="success" path="/jsp/visualizeGraph.jsp" contextRelative="true" />
+			<forward name="failure" path="/jsp/visualize.jsp" contextRelative="true" />
+		</action>
+    <action attribute="QuestionForm" input="/jsp/question.jsp" name="QuestionForm" parameter="method" path="/Question" scope="request" type="gov.nih.nlm.semmed.struts.action.QuestionAction">
+      <forward name="success" path="/jsp/question.jsp" contextRelative="true" />
+    </action>
+    <action
+      attribute="QuestionForm"
+      name="QuestionForm"
+      path="/InitializeQuestion"
+      scope="request"
+      type="gov.nih.nlm.semmed.struts.action.InitializeQuestion">
+      <forward
+        name="success"
+        path="/jsp/question.jsp"
+        contextRelative="true" />
+    </action>
+	</action-mappings>
+	<message-resources parameter="gov.nih.nlm.semmed.struts.ApplicationResources" />
+	<plug-in className="gov.nih.nlm.semmed.struts.plugin.AppScopePlugIn"></plug-in>
+</struts-config>
+

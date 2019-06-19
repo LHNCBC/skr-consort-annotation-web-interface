@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/Welcome.do" location="240,45" dimension="86,106" />
+  <StrutsActivity path="/Search.do" location="165,315" dimension="237,88" />
+  <StrutsActivity path="/InitializeSemrep.do" location="450,45" dimension="150,100" />
+  <StrutsActivity path="/Semrep.do" location="450,300" dimension="150,100" />
+  <StrutsActivity path="/InitializeSummary.do" location="660,60" dimension="320,88" />
+  <StrutsActivity path="/Summary.do" location="675,300" dimension="281,88" />
+  <StrutsActivity path="/InitializeTranslate.do" location="120,435" dimension="321,88" />
+  <StrutsActivity path="/Translate.do" location="105,705" dimension="282,88" />
+  <StrutsActivity path="/InitializeVisualization.do" location="510,435" dimension="334,88" />
+  <StrutsActivity path="/Visualize.do" location="555,690" dimension="277,88" />
+  <StrutsActivity path="/Question.do" location="1065,300" dimension="150,100" />
+  <StrutsActivity path="/InitializeQuestion.do" location="1076,62" dimension="150,100" />
+  <StrutsActivity path="Welcome;6" location="15,45" dimension="150,100" />
+  <StrutsActivity path="/jsp/search.jsp" location="225,195" dimension="101,49" />
+  <StrutsActivity path="/jsp/semrep.jsp" location="480,195" dimension="104,49" />
+  <StrutsActivity path="/jsp/summary.jsp" location="765,195" dimension="112,49" />
+  <StrutsActivity path="/jsp/translate.jsp" location="225,555" dimension="112,49" />
+  <StrutsActivity path="/jsp/visualize.jsp" location="615,570" dimension="109,49" />
+  <StrutsActivity path="/jsp/question.jsp" location="1095,195" dimension="110,49" />
+  <StrutsActivity path="jsp/translate.jsp" location="1155,570" dimension="108,49" />
+  <StrutsActivity path="/jsp/visualizeGraph.jsp" location="900,555" dimension="138,49" />
+  <StrutsTransition id="/Search.do,failure,/jsp/search.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="313,315" />
+      <AbsolutePoint location="313,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/visualize.jsp,null,/Visualize.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="633,619" />
+      <AbsolutePoint location="633,690" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Welcome.do,success,/jsp/search.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="283,151" />
+      <AbsolutePoint location="283,195" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Summary.do,failure,/jsp/summary.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="845,300" />
+      <AbsolutePoint location="845,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/summary.jsp,null,/Summary.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="785,244" />
+      <AbsolutePoint location="785,300" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Semrep.do,success,/jsp/semrep.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="525,300" />
+      <AbsolutePoint location="525,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Question.do,success,/jsp/question.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1140,300" />
+      <AbsolutePoint location="1140,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Translate.do,failure,/jsp/translate.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="276,705" />
+      <AbsolutePoint location="276,604" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Semrep.do,failure,/jsp/semrep.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="555,300" />
+      <AbsolutePoint location="555,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/search.jsp,null,/Search.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="253,244" />
+      <AbsolutePoint location="253,315" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/question.jsp,null,/Question.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1170,244" />
+      <AbsolutePoint location="1170,300" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Search.do,success,/jsp/search.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="283,315" />
+      <AbsolutePoint location="283,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Visualize.do,failure,/jsp/visualize.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="663,690" />
+      <AbsolutePoint location="663,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/InitializeQuestion.do,success,/jsp/question.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1151,162" />
+      <AbsolutePoint location="1151,195" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Translate.do,success,/jsp/translate.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="246,705" />
+      <AbsolutePoint location="246,604" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/semrep.jsp,null,/Semrep.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="495,244" />
+      <AbsolutePoint location="495,300" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/jsp/translate.jsp,null,/Translate.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="306,604" />
+      <AbsolutePoint location="306,705" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Visualize.do,success,/jsp/visualizeGraph.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="832,734" />
+      <AbsolutePoint location="969,734" />
+      <AbsolutePoint location="969,604" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Summary.do,success,/jsp/summary.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="815,300" />
+      <AbsolutePoint location="815,244" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/InitializeTranslate.do,success,/jsp/translate.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="280,523" />
+      <AbsolutePoint location="280,555" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/InitializeSummary.do,success,/jsp/summary.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="820,148" />
+      <AbsolutePoint location="820,195" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/Visualize.do,success,/jsp/visualize.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="693,690" />
+      <AbsolutePoint location="693,619" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/InitializeSemrep.do,success,/jsp/semrep.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="525,145" />
+      <AbsolutePoint location="525,195" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="Welcome;6,null,/Welcome.do,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="165,95" />
+      <AbsolutePoint location="240,95" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/InitializeVisualization.do,success,/jsp/visualize.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="677,523" />
+      <AbsolutePoint location="677,570" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Mon Mar 27 11:16:11 EST 2006                         -->
+<hibernate-mapping package="gov.nih.nlm.semmed.model">
+
+    <class name="SentencePredication" table="SENTENCE_PREDICATION" mutable="false">
+        <cache usage="read-only"/>
+        <id name="sentencePredicationId" column="SENTENCE_PREDICATION_ID" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>   
+        
+        <property name="predicationNumber" column="PREDICATION_NUMBER" type="java.lang.Integer"  not-null="true" />
+        <property name="subjectText" column="SUBJECT_TEXT" type="java.lang.String" />
+        <property name="subjectDist" column="SUBJECT_DIST" type="java.lang.Integer" />
+        <property name="subjectMaxdist" column="SUBJECT_MAXDIST" type="java.lang.Integer" />
+        <property name="subjectStartIndex" column="SUBJECT_START_INDEX" type="java.lang.Integer" />
+        <property name="subjectEndIndex" column="SUBJECT_END_INDEX" type="java.lang.Integer" />
+        <property name="subjectScore" column="SUBJECT_SCORE" type="java.lang.Integer" />
+        <property name="indicatorType" column="INDICATOR_TYPE" type="java.lang.String" />
+        <property name="predicateStartIndex" column="PREDICATE_START_INDEX" type="java.lang.Integer" />
+        <property name="predicateEndIndex" column="PREDICATE_END_INDEX" type="java.lang.Integer" />
+        <property name="objectText" column="OBJECT_TEXT" type="java.lang.String" />
+        <property name="objectDist" column="OBJECT_DIST" type="java.lang.Integer" />
+        <property name="objectMaxdist" column="OBJECT_MAXDIST" type="java.lang.Integer" />
+        <property name="objectStartIndex" column="OBJECT_START_INDEX" type="java.lang.Integer" />
+        <property name="objectEndIndex" column="OBJECT_END_INDEX" type="java.lang.Integer" />
+        <property name="objectScore" column="OBJECT_SCORE" type="java.lang.Integer" />
+ 
+        <many-to-one name="sentence" column="SENTENCE_ID" class="Sentence"  not-null="true" lazy="false"/>
+        <many-to-one name="predication" column="PREDICATION_ID" class="Predication"  not-null="true" lazy="false"/>
+
+    </class>
+   
+</hibernate-mapping>

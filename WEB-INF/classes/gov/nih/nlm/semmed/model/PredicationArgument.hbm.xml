@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Mar 23 16:12:49 EST 2006                         -->
+<hibernate-mapping package="gov.nih.nlm.semmed.model">
+
+	<class name="PredicationArgument" table="PREDICATION_ARGUMENT" mutable="false">
+        <cache usage="read-only"/>
+		<id name="predicationArgumentId" column="PREDICATION_ARGUMENT_ID" type="java.lang.Long">
+			<generator class="increment" />
+		</id>
+
+		<property name="type" column="TYPE" type="java.lang.String" not-null="true" />
+
+		<many-to-one name="predication" column="PREDICATION_ID" class="Predication" not-null="true" lazy="false"/>
+
+		<many-to-one name="conceptSemtype" column="CONCEPT_SEMTYPE_ID" class="ConceptSemtype" not-null="true" lazy="false" />
+	</class>
+
+</hibernate-mapping>

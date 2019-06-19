@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Wed Jan 18 17:23:59 EST 2006                         -->
+<hibernate-mapping package="gov.nih.nlm.semmed.model">
+
+    <class name="Sentence" table="SENTENCE" mutable="false">
+        <cache usage="read-only"/> 
+        <id name="sentenceId" column="SENTENCE_ID" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+ 
+        <property name="pmid" column="PMID" type="java.lang.String"  not-null="true" />
+        <property name="type" column="TYPE" type="java.lang.String"  not-null="true" />
+        <property name="number" column="NUMBER" type="java.lang.Integer"  not-null="true" />
+        <property name="sentence" column="SENTENCE" type="java.lang.String"  not-null="true" />
+ 
+        <set name="sentencePredicationSet" inverse="true">
+            <key column="SENTENCE_ID"/>
+            <one-to-many class="SentencePredication"/>
+        </set>
+    </class>
+    
+</hibernate-mapping>

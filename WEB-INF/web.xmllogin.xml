@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<description>Perform HTTP tunneling for applet communication</description>
+		<display-name>RetrievePubmedArticleServlet</display-name>
+		<servlet-name>RetrievePubmedArticleServlet</servlet-name>
+		<servlet-class>gov.nih.nlm.semmed.servlet.RetrievePubmedArticleServlet</servlet-class>
+	</servlet>
+
+
+	<servlet>
+		<servlet-name>RetrieveGraphServlet</servlet-name>
+		<servlet-class>gov.nih.nlm.semmed.servlet.GraphServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RetrieveArticle</servlet-name>
+		<servlet-class>gov.nih.nlm.semmed.servlet.FlashProxy</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RetrieveArticle</servlet-name>
+		<url-pattern>/servlet/RetrieveArticle</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RetrieveGraphServlet</servlet-name>
+		<url-pattern>/servlet/RetrieveGraph</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RetrievePubmedArticleServlet</servlet-name>
+		<url-pattern>/servlet/RetrievePubmedArticleServlet</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>action</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>SemMedUser</role-name>
+			<role-name>SemMedTester</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>SemMed</realm-name>
+	</login-config>
+
+	<security-role>
+	   <description>Sem Med User role</description>
+		<role-name>SemMedUser</role-name>
+	</security-role>
+	 <security-role>
+    <description>Test role</description>
+    <role-name>SemMedTester</role-name>
+    </security-role>
+
+
+	<filter>
+		<filter-name>AjaxAnywhere</filter-name>
+		<filter-class>org.ajaxanywhere.AAFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AjaxAnywhere</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>AjaxAnywhere</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<resource-ref>
+		<description>Resource reference to a factory for java.sql.Connection instances that may be used for talking to a particular database that is configured in the server.xml file.</description>
+		<res-ref-name>jdbc/SemMedDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+
+</web-app>
+

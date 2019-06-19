@@ -1,11 +1,18 @@
 .react-bootstrap-table table {
   table-layout: auto;
+  overflow: scroll;
+  width: 100%;
 }
 
 .react-bootstrap-table table td,
 .react-bootstrap-table table th {
-  text-align: justify;
   white-space: normal;
-  word-break: break-all;
-  text-align: center;
+  word-break: break-word;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
 }

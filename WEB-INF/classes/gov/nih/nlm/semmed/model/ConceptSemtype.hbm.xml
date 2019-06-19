@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Wed Feb 08 11:02:48 EST 2006                         -->
+<hibernate-mapping package="gov.nih.nlm.semmed.model">
+
+    <class name="ConceptSemtype" table="CONCEPT_SEMTYPE" mutable="false">
+        <cache usage="read-only"/>
+        <id name="conceptSemtypeId" column="CONCEPT_SEMTYPE_ID" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+ 
+        <property name="semtype" column="SEMTYPE" type="java.lang.String"  not-null="true" />
+<!--         <many-to-one name="concept" column="CONCEPT_ID" class="Concept"  not-null="true"/>        -->
+        <many-to-one name="concept" column="CONCEPT_ID" class="Concept"  not-null="true" lazy="false"/>
+        <property name="novel" column="NOVEL" type="java.lang.String"  not-null="true" />
+ 
+        <set name="predicationSet" inverse="true">
+            <key column="SUBJECT_SEMTYPE_ID"/>
+            <one-to-many class="Predication"/>
+        </set>
+ 
+        <set name="predication1Set" inverse="true">
+            <key column="OBJECT_SEMTYPE_ID"/>
+            <one-to-many class="Predication"/>
+        </set> 
+    </class>
+    
+</hibernate-mapping>

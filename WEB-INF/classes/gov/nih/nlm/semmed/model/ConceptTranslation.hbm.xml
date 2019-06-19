@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Tue May 23 16:43:31 EDT 2006                         -->
+<hibernate-mapping package="gov.nih.nlm.semmed.model">
+
+    <class name="ConceptTranslation" table="CONCEPT_TRANSLATION" mutable="false">
+    	<cache usage="read-only"/>
+        <id name="conceptTranslationId" column="CONCEPT_TRANSLATION_ID" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+ 
+        <many-to-one name="concept" column="CONCEPT_ID" class="Concept"  not-null="true" lazy="false"/>
+        <property name="language" column="LANGUAGE" type="java.lang.String"  not-null="true" />
+        <property name="translation" column="TRANSLATION" type="java.lang.String"  not-null="true" />
+    </class>
+    
+</hibernate-mapping>

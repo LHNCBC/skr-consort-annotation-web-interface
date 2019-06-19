@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<!-- DO NOT EDIT: This is a generated file that is synchronized -->
+<!-- by MyEclipse Hibernate tool integration.                   -->
+<!-- Created Thu Mar 23 15:18:25 EST 2006                         -->
+<hibernate-mapping package="gov.nih.nlm.semmed.model">
+
+    <class name="Concept" table="CONCEPT" mutable="false">
+        <cache usage="read-only"/>
+        <id name="conceptId" column="CONCEPT_ID" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+ 
+        <property name="cui" column="CUI" type="java.lang.String"  not-null="true" />
+        <property name="type" column="TYPE" type="java.lang.String"  not-null="true" />
+        <property name="preferredName" column="PREFERRED_NAME" type="java.lang.String"  not-null="true" />
+        <property name="ghr" column="GHR" type="java.lang.String" />
+        <property name="omim" column="OMIM" type="java.lang.String" />
+ 
+        <set name="conceptSemtypeSet" inverse="true">
+            <key column="CONCEPT_ID"/>
+            <one-to-many class="ConceptSemtype"/>
+        </set>
+        <set name="conceptTranslationSet" inverse="true" >
+            <key column="CONCEPT_ID"/>
+            <one-to-many class="ConceptTranslation"/>
+        </set>        
+    </class>
+    
+</hibernate-mapping>

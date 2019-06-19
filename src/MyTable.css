@@ -1,0 +1,45 @@
+.react-bootstrap-table table {
+  table-layout: auto;
+  overflow: scroll;
+}
+
+.react-bootstrap-table table td,
+.react-bootstrap-table table th {
+  white-space: normal;
+  word-break: break-word;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.react-bootstrap-table table tr:hover {
+  background-color: #DEFDE0;
+}
+
+.Select-option.is-disabled {
+  cursor: default;
+  padding-left: 1em;
+  font-weight: bold;
+  text-align: left;
+  color: black;
+}
+
+#unselected {
+  border-color: #FF0000;
+  background-color: #FF0000;
+  background: #FF0000;
+}
+
+#selected {
+  background-color: #40E0D0;
+}
+
+.example1 {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
