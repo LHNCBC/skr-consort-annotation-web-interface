@@ -9,7 +9,7 @@
     "react-dom": "^16.5.2",
     "react-dropdown": "^1.4.0",
     "react-json-table": "^0.1.1",
-    "react-scripts": "2.0.4",
+    "react-scripts": "5.0.1",
     "react-select": "^1.2.1",
     "react-tabs": "^2.2.2",
     "xml2js": "^0.4.19"
